@@ -1,0 +1,241 @@
+.tasks-section {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 10em;
+	background-color: #eee;
+}
+
+.title {
+	margin: 2em 1em;
+	padding-bottom: 0.5em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 500px;
+	border-bottom: 2px solid var(--gray-1);
+}
+
+.title p {
+	font-size: 2.5em;
+	font-weight: 700;
+}
+
+.title > div > img {
+	width: 40px;
+	padding: 0.5em;
+	opacity: 0.7;
+	border-radius: 50%;
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+.title > div > img:hover {
+	opacity: 1;
+}
+
+.title > div {
+	position: relative;
+}
+
+.more-options {
+	background-color: #fff;
+	box-shadow: 0 0 10px 3px #ddd;
+	padding: 0.5em;
+	display: none;
+	flex-direction: column;
+	border-radius: var(--border-radius);
+	position: absolute;
+	top: 50px;
+	right: -5px;
+	width: 230px;
+	z-index: 100;
+}
+
+.more-options button {
+	background-color: transparent;
+	color: #555;
+	border: none;
+	padding: 0.5em;
+	text-align: start;
+	width: 100%;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.more-options button:hover {
+	background-color: #eee;
+}
+
+.more-options button img {
+	width: 17px;
+	margin-right: 0.5em;
+	opacity: 0.5;
+}
+
+.tasks-container {
+	width: 500px;
+}
+
+.tasks-container li {
+	margin-bottom: 0.5em;
+	padding: 1em;
+	border-radius: var(--border-radius);
+	background-color: #fff;
+	box-shadow: var(--shadow);
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.grid-edit {
+	grid-gap: 1em;
+	grid-template-columns: 3fr repeat(2, 1fr);
+	grid-template-areas:
+		"input input input"
+		"empty cancel save";
+}
+
+.tasks-container li > div:first-of-type {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	grid-area: input;
+}
+
+.tasks-container li input[type="checkbox"] {
+	display: none;
+}
+
+.tasks-container li input[type="checkbox"]:checked + label {
+	background-color: var(--theme-color);
+}
+
+.tasks-container li input[type="checkbox"]:checked ~ p {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.tasks-container li label {
+	min-width: 20px;
+	min-height: 20px;
+	margin-right: 10px;
+	border: 2px solid var(--theme-color);
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+}
+
+.tasks-container li label::after {
+	content: "";
+	width: 9px;
+	height: 4px;
+	border-color: #fff;
+	border-style: none none solid solid;
+	position: absolute;
+	top: 4px;
+	left: 3px;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.tasks-container li p {
+	pointer-events: none;
+	inline-size: 100%;
+	overflow-wrap: break-word;
+}
+
+.tasks-container li input[type="text"] {
+	display: none;
+	border: none;
+	width: 100%;
+}
+
+.tasks-container li > div:nth-of-type(2) {
+	width: 45px;
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tasks-container li button {
+	display: none;
+}
+
+.tasks-container li img {
+	cursor: pointer;
+	width: 17px;
+	opacity: 0.3;
+}
+
+.tasks-container li img:hover {
+	opacity: 0.7;
+}
+
+.add-task {
+	width: 500px;
+	border: 2px dashed transparent;
+	border-radius: var(--border-radius);
+	padding: 1em;
+	color: var(--theme-color);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.add-task:hover {
+	border: 2px dashed var(--theme-color);
+	background-color: var(--transparent-w-5);
+}
+
+.new-container {
+	width: 500px;
+	padding: 1em;
+	border-radius: var(--border-radius);
+	background-color: #fff;
+	box-shadow: var(--shadow);
+	display: none;
+	grid-gap: 1em;
+	grid-template-columns: 3fr repeat(2, 1fr);
+	grid-template-areas:
+		"input input input"
+		"empty cancel save";
+}
+
+.new-container input {
+	border: none;
+	grid-area: input;
+}
+
+.new-container input::placeholder {
+	opacity: 0.5;
+}
+
+.new-container button,
+.tasks-container li button {
+	border: none;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	padding: 0.5em;
+	font-weight: 700;
+}
+
+.new-container button:first-of-type,
+.tasks-container li button:first-of-type {
+	background-color: transparent;
+	color: var(--black);
+	opacity: 0.5;
+	grid-area: cancel;
+}
+
+.new-container button:nth-of-type(2),
+.tasks-container li button:nth-of-type(2) {
+	background-color: var(--theme-color);
+	color: #fff;
+	grid-area: save;
+}

@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Noto+Sans+Mono&display=swap");
+@import url("normalize.css");
+@import url("main.css");
+@import url("header.css");
+@import url("about.css");
+@import url("settings.css");
+@import url("clock.css");
+@import url("tasks.css");
+
+body {
+	background-color: var(--theme-color);
+	font-family: var(--main-font-family);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signature {
+	font-family: monospace;
+	color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3em 0;
+	background-color: #eee;
+	width: 100%;
+}
+
+.signature p {
+	opacity: 0.5;
+}
+
+.signature a {
+	color: #000;
+	text-decoration: none;
+}
+
+.signature a:hover {
+	text-decoration: underline;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: var(--theme-color);
+}
+
+body::-webkit-scrollbar {
+	width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: var(--transparent-w-3);
+}
+
+/* Responsive styles */
+
+@media (max-width: 900px) {
+	header {
+		width: 90%;
+	}
+}
+
+@media (max-width: 700px) {
+	.time-types,
+	.time-bar {
+		width: 90%;
+	}
+
+	.timer {
+		font-size: 30vw;
+	}
+
+	.go-button {
+		width: 10%;
+		height: auto;
+	}
+}
+
+@media (max-width: 600px) {
+	.settings-container,
+	.about-container {
+		width: 90%;
+	}
+}
+
+@media (max-width: 550px) {
+	.time-types li {
+		font-size: 0.8em;
+	}
+
+	.title,
+	.tasks-container,
+	.add-task,
+	.new-container {
+		width: 90%;
+	}
+}
+
+@media (max-width: 500px) {
+	.settings-container {
+		grid-gap: 0.5em;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1.5fr repeat(6, 0.5fr) 1.5fr;
+		grid-template-areas:
+			"title title"
+			"work work"
+			"short short"
+			"long long"
+			"aswork aswork"
+			"asbreak asbreak"
+			"interval interval"
+			"save save";
+	}
+
+	.work-container,
+	.short-container,
+	.long-container {
+		grid-template-columns: 1.5fr 2fr 1fr;
+		grid-template-areas: "title value color2";
+	}
+
+	.work-container label,
+	.short-container label,
+	.long-container label {
+		justify-content: start;
+	}
+
+	.picker-container {
+		top: -100px;
+		left: 70%;
+	}
+
+	.auto-inputs {
+		min-height: 40px;
+	}
+
+	.save-settings {
+		margin-top: 1em;
+	}
+
+	.work-container .number-input,
+	.short-container .number-input,
+	.long-container .number-input {
+		margin: 0;
+	}
+}
+
+@media (max-width: 400px) {
+	.work-container,
+	.short-container,
+	.long-container,
+	.as-work-container,
+	.as-break-container,
+	.interval-container {
+		font-size: 0.8em;
+	}
+}

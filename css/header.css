@@ -1,0 +1,41 @@
+header {
+	height: 13vh;
+	min-height: 100px;
+	width: 800px;
+	color: var(--white);
+	font-weight: 700;
+	font-size: 1.5em;
+	background-color: var(--theme-color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--transparent-w-2);
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	width: 25px;
+	margin-right: 0.5em;
+}
+
+header > p {
+	cursor: context-menu;
+}
+
+header button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+header button > img {
+	width: 25px;
+}
+
+header button > img:first-of-type {
+	margin-right: 0.5em;
+}
